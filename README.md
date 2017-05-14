@@ -1,24 +1,41 @@
-# README
+# SELECTRA DEMO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Background:
+Create a Ruby on Rails App to manage open and close times for different locations. The app should have:
+1. Users CRUD
+2. Locations CRUD with open and close time for each day of the week
+3. User login
+4. API RestFull to check if a location is open or close
 
-Things you may want to cover:
+## Requirements:
+```
+Ruby 2.4.0
+Rails 5.0.3
+```
 
-* Ruby version
+## Bundle:
+```
+  bundle install
+```
 
-* System dependencies
+## DB
+```
+  rake db:create db:migrate
+```
 
-* Configuration
+## RUN
+```
+  rails s
+```
 
-* Database creation
+## TEST
+```
+  rspec
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## API's
+Every request must have .json extension
+```
+1. Location Status ( Return close or open )
+show GET /api/location_status/id.json
+```
