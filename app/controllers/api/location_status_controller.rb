@@ -7,8 +7,8 @@ class Api::LocationStatusController < ApplicationController
     if Location.exists?(params[:id])
       @location = Location.find(params[:id])
     else
-      # Return 404 in case location is not found
-      render json: { error: "Not Found" }, status: :not_found
+      # Return Not Found in case location is not found
+      render json: { error: "Not Found" }
     end
   end
 

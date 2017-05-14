@@ -21,6 +21,9 @@
         - unless current_user.nil?
           #bs-example-navbar-collapse-1.collapse.navbar-collapse
             %ul.nav.navbar-nav.navbar-right
+              %li{class: "#{controller_name=='search' ? 'active':''}"}
+                %a{:href => search_index_path}
+                  Search
               %li{class: "#{controller_name=='locations' ? 'active':''}"}
                 %a{:href => locations_path}
                   Locations
