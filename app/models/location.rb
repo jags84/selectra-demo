@@ -1,5 +1,5 @@
 class Location < ApplicationRecord
-  has_many :location_schedules
+  has_many :location_schedules, dependent: :destroy
   validates :name,:address, presence: true
 
   # Return if a location is open or close
