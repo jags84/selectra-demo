@@ -16,8 +16,24 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => root_path} SELECTRA
-
+          %a.navbar-brand{:href => locations_path} SELECTRA
+        / Collect the nav links, forms, and other content for toggling
+        - unless current_user.nil?
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            %ul.nav.navbar-nav.navbar-right
+              %li{class: "#{controller_name=='locations' ? 'active':''}"}
+                %a{:href => locations_path}
+                  Locations
+              %li.dropdown
+                %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  = current_user.email
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => edit_user_registration_path} Edit my information
+                  %li.divider{role: "separator"}
+                  %li
+                    = link_to 'Logout', destroy_user_session_path, :method => :delete
     = yield
     = javascript_include_tag 'application'
     = javascript_include_tag "#{controller_name}"
