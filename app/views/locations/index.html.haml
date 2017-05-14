@@ -1,23 +1,29 @@
-%h1 Listing locations
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Address
-      %th
-      %th
-      %th
-
-  %tbody
-    - @locations.each do |location|
-      %tr
-        %td= location.name
-        %td= location.address
-        %td= link_to 'Show', location
-        %td= link_to 'Edit', edit_location_path(location)
-        %td= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Location', new_location_path
+.container
+  .row
+    .panel.panel-default
+      .panel-heading
+        Locations
+      - if @locations.count == 0
+        .panel-body
+          There are no locations, start by creating a new one!
+          = link_to 'New Location', new_location_path, class: "btn btn-success"
+      -else
+        .panel-body
+          %table.table.table-bordered
+            %thead
+              %tr
+                %th Location ID
+                %th Name
+                %th Address
+                %th Actions
+            %tbody
+              - @locations.each do |location|
+                %tr
+                  %td= location.id
+                  %td= location.name
+                  %td= location.address
+                  %td
+                    = link_to 'View Location', location, class: "btn btn-default"
+                    = link_to 'Edit Location', edit_location_path(location), class: "btn btn-warning"
+                    = link_to 'Delete Location', location, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+          = link_to 'New Location', new_location_path, class: "btn btn-success"
