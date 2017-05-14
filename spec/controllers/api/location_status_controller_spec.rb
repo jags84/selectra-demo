@@ -17,7 +17,7 @@ RSpec.describe Api::LocationStatusController, type: :controller do
       is_expected.to respond_with 406
     end
 
-    it "must return location status" do
+    it "must return location status and location name" do
       location = FactoryGirl.create(:location)
       schedule = {
         "Sunday_open_hour"=>"06:00",
