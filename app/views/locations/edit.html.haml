@@ -1,0 +1,88 @@
+.container
+  .row
+    .panel.panel-default
+      .panel-heading
+        Edit Location
+      .panel-body
+        = form_for @location, html: {role: "form", 'data-toggle': "validator"} do |f|
+          %fieldset
+            - if @location.errors.any?
+              #error_explanation
+                %h2= "#{pluralize(@location.errors.count, "error")} prohibited this location from being saved:"
+                %ul
+                  - @location.errors.full_messages.each do |message|
+                    %li= message
+
+            .form-group
+              = f.label :name
+              = f.text_field :name, class: 'form-control',required: true,'data-error': "You must enter a location name"
+              .help-block.with-errors
+            .form-group
+              = f.label :address
+              = f.text_field :address, class: 'form-control',required: true,'data-error': "You must enter a location name"
+              .help-block.with-errors
+            .form-group
+              %label#schedule_edit
+                Shedule
+              .form-group
+                .row
+                  .col-xs-3.col-lg-3.col-sm-3.schedule
+                    Day
+                  .col-xs-3.col-lg-3.col-sm-3.schedule
+                    Open Time
+                  .col-xs-3.col-lg-3.col-sm-3.schedule
+                    Close Time
+                - @location.location_schedules.each do |loc_schedule|
+                  .row
+                    .col-xs-3.col-lg-3.col-sm-3.schedule
+                      = loc_schedule.day
+                    .col-xs-3.col-lg-3.col-sm-3.schedule
+                      %select.form-control.col-sm-2{:name => "[schedule][#{loc_schedule.day}_open_hour]", required: true ,'data-open-hour':"#{loc_schedule.open_time}",'data-error': "You must pick the open hour", id: "#{loc_schedule.day}_open_hour"}
+                        %option
+                        %option{:value => "06:00"} 06:00
+                        %option{:value => "07:00"} 07:00
+                        %option{:value => "08:00"} 08:00
+                        %option{:value => "09:00"} 09:00
+                        %option{:value => "10:00"} 10:00
+                        %option{:value => "11:00"} 11:00
+                        %option{:value => "12:00"} 12:00
+                        %option{:value => "13:00"} 13:00
+                        %option{:value => "14:00"} 14:00
+                        %option{:value => "15:00"} 15:00
+                        %option{:value => "16:00"} 16:00
+                        %option{:value => "17:00"} 17:00
+                        %option{:value => "18:00"} 18:00
+                        %option{:value => "19:00"} 19:00
+                        %option{:value => "20:00"} 20:00
+                        %option{:value => "21:00"} 21:00
+                        %option{:value => "22:00"} 22:00
+                        %option{:value => "23:00"} 23:00
+                      .help-block.with-errors
+                    .col-xs-3.col-lg-3.col-sm-3.schedule
+                      %select.form-control.col-sm-2{:name => "[schedule][#{loc_schedule.day}_close_hour]", required: true ,'data-close-hour':"#{loc_schedule.close_time}",'data-error': "You must pick the close hour", id: "#{loc_schedule.day}_close_hour"}
+                        %option
+                        %option{:value => "06:00"} 06:00
+                        %option{:value => "07:00"} 07:00
+                        %option{:value => "08:00"} 08:00
+                        %option{:value => "09:00"} 09:00
+                        %option{:value => "10:00"} 10:00
+                        %option{:value => "11:00"} 11:00
+                        %option{:value => "12:00"} 12:00
+                        %option{:value => "13:00"} 13:00
+                        %option{:value => "14:00"} 14:00
+                        %option{:value => "15:00"} 15:00
+                        %option{:value => "16:00"} 16:00
+                        %option{:value => "17:00"} 17:00
+                        %option{:value => "18:00"} 18:00
+                        %option{:value => "19:00"} 19:00
+                        %option{:value => "20:00"} 20:00
+                        %option{:value => "21:00"} 21:00
+                        %option{:value => "22:00"} 22:00
+                        %option{:value => "23:00"} 23:00
+                      .help-block.with-errors
+            .actions
+              .row
+                .col-lg-6
+                  = f.submit 'Save', class: "btn btn-success btn-block"
+                .col-lg-6
+                  = link_to 'Back', :back , class: "btn btn-default btn-block"
