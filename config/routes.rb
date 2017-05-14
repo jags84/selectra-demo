@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :api do
+    resources :location_status, only: [:show]
+  end
   resources :locations
   devise_for :users
   root to: 'home#index'
