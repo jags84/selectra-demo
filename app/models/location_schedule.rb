@@ -9,6 +9,7 @@ class LocationSchedule < ApplicationRecord
     WEEK_DAYS
   end
 
+  # Set week schedule for a location
   def self.set_schedule(location,schedule)
     location.location_schedules.delete_all
     WEEK_DAYS.each do |week_day|

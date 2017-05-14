@@ -66,3 +66,5 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 # devise
 gem 'devise'
+# TimeOfDay
+gem 'tod'
