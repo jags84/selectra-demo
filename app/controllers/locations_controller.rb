@@ -28,6 +28,7 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
     respond_to do |format|
       if @location.save
+        # Create Schedule
         LocationSchedule.set_schedule(@location,params['schedule'])
         format.html { redirect_to @location, notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
@@ -43,6 +44,8 @@ class LocationsController < ApplicationController
   def update
     respond_to do |format|
       if @location.update(location_params)
+        # Update Schedule
+        LocationSchedule.set_schedule(@location,params['schedule'])
         format.html { redirect_to @location, notice: 'Location was successfully updated.' }
         format.json { render :show, status: :ok, location: @location }
       else

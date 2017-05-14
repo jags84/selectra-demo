@@ -1,12 +1,39 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @location.name
-%p
-  %b Address:
-  = @location.address
-
-= link_to 'Edit', edit_location_path(@location)
-\|
-= link_to 'Back', locations_path
+.container
+  .row
+    .panel.panel-default
+      .panel-heading
+        %h2
+          = "Location #{@location.id}"
+      .panel-body
+        .row
+          .col-xs-12.col-sm-6.col-md-6.col-lg-6
+            %h3 Name
+          .col-xs-12.col-sm-6.col-md-6.col-lg-6
+            %h3 Address
+        .row
+          .col-xs-12.col-sm-6.col-md-6.col-lg-6
+            = @location.name
+          .col-xs-12.col-sm-6.col-md-6.col-lg-6
+            = @location.address
+        .row
+          .col-md-12
+            %h3 Schedule
+        .row
+          .col-xs-3.col-lg-3.col-sm-3.schedule
+            %h4 Day
+          .col-xs-3.col-lg-3.col-sm-3.schedule
+            %h4 Open Time
+          .col-xs-3.col-lg-3.col-sm-3.schedule
+            %h4 Close Time
+        -@location.location_schedules.each do |loc_schedule|
+          .row
+            .col-xs-3.col-lg-3.col-sm-3.schedule
+              = loc_schedule.day
+            .col-xs-3.col-lg-3.col-sm-3.schedule
+              = loc_schedule.open_time
+            .col-xs-3.col-lg-3.col-sm-3.schedule
+              = loc_schedule.close_time
+        .row
+          .col-md-12
+            = link_to 'Edit Location', edit_location_path(@location), class: "btn btn-warning"
+            = link_to 'Back', locations_path, class: "btn btn-default"
