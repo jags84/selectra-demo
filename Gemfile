@@ -45,6 +45,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   # faker
   gem 'faker'
+  # Shoulda gem
+  gem 'shoulda'
 end
 
 group :development do

@@ -14,6 +14,6 @@ class Api::LocationStatusController < ApplicationController
 
   private
     def check_format
-      render :nothing => true, :status => 406 unless params[:format] == "json"
+      render :head => true, :status => 406 unless params[:format] == "json"
     end
 end
