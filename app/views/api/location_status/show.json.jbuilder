@@ -1,2 +1,5 @@
 # Return open or close
-json.location_status @location.current_status unless @location.nil?
+unless @location.nil?
+  json.location_status @location.current_status
+  json.location_name @location.name
+end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :search, only: [:index]
   namespace :api do
     resources :location_status, only: [:show]
   end

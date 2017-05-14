@@ -11,5 +11,5 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico)
-Rails.application.config.assets.precompile += ['application.css','home.css','registrations.css','sessions.css','locations.css']
-Rails.application.config.assets.precompile += ['application.js','home.js','registrations.js','sessions.js','locations.js']
+Rails.application.config.assets.precompile += ['application.css','home.css','registrations.css','sessions.css','locations.css','search.css']
+Rails.application.config.assets.precompile += ['application.js','home.js','registrations.js','sessions.js','locations.js','search.js']
