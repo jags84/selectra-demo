@@ -16,12 +16,14 @@
                 %th Name
                 %th Address
                 %th Actions
+                %th Status
             %tbody
               - @locations.each do |location|
                 %tr
                   %td= location.id
                   %td= location.name
                   %td= location.address
+                  %td= location.current_status
                   %td
                     = link_to 'View Location', location, class: "btn btn-default"
                     = link_to 'Edit Location', edit_location_path(location), class: "btn btn-warning"

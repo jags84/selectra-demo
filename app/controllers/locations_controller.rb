@@ -2,13 +2,11 @@ class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   # GET /locations
-  # GET /locations.json
   def index
     @locations = Location.all
   end
 
   # GET /locations/1
-  # GET /locations/1.json
   def show
   end
 
@@ -23,7 +21,6 @@ class LocationsController < ApplicationController
   end
 
   # POST /locations
-  # POST /locations.json
   def create
     @location = Location.new(location_params)
     respond_to do |format|
@@ -40,7 +37,6 @@ class LocationsController < ApplicationController
   end
 
   # PATCH/PUT /locations/1
-  # PATCH/PUT /locations/1.json
   def update
     respond_to do |format|
       if @location.update(location_params)
@@ -55,8 +51,7 @@ class LocationsController < ApplicationController
     end
   end
 
-  # DELETE /locations/1
-  # DELETE /locations/1.json
+  # DELETE /locations/1rou
   def destroy
     @location.destroy
     respond_to do |format|
