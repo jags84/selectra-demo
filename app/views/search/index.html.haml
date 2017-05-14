@@ -1,0 +1,25 @@
+.container
+  .row
+    .panel.panel-default
+      .panel-heading
+        Search
+      .panel-body
+        %form.form-inline{"data-toggle" => "validator", :role => "form"}
+          .form-group
+            %label
+              Location ID
+            %input.form-control#location-id{name: "location_id", type: "text", required: true ,'data-error': "Please enter a location ID"}
+            %button.btn.btn-primary#search-button{:type => "submit"} Search
+            .help-block.with-errors
+  .row.results.hide
+    .panel.panel-default
+      .panel-heading
+        Result
+      .panel-body
+        #location-not-found.hide
+          .alert.alert-danger#error{:role => "alert"}
+            The location was not found
+        #location-closed.hide
+          .alert.alert-warning#close{:role => "alert"}
+        #location-opened.hide
+          .alert.alert-success#open{:role => "alert"}
