@@ -25,9 +25,11 @@ search_location = () ->
     success: (response) ->
       if response.location_status == 'close'
         $('#location-closed').removeClass('hide')
+        # Add Message to alert
         $('#close').html("The location "+response.location_name+" is CLOSE right now")
       else if response.location_status == 'open'
         $('#location-opened').removeClass('hide')
+        # Add Message to alert
         $('#open').html("The location "+response.location_name+" is OPEN right now")
       else
         #error
